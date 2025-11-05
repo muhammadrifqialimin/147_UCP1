@@ -1,5 +1,5 @@
-module.exports = (Sequelize, DataTypes) => {
-  const hotel = Sequelize.define(
+module.exports = (sequelize, DataTypes) => {
+  const Hotel = sequelize.define(
     "hotel",
     {
       id: {
@@ -20,18 +20,20 @@ module.exports = (Sequelize, DataTypes) => {
         allowNull: false,
       },
       Fasilitas: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
       },
       Tanggal_Pesan: {
-        type: DataTypes.DATE,
+        type: DataTypes.DATEONLY,
         allowNull: false,
       },
     },
     {
       tableName: "hotel",
       freezeTableName: true,
-      timestamps: true,
+      timestamps: false,
     }
   );
+
+  return Hotel;
 };
